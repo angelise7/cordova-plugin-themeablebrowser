@@ -1631,6 +1631,13 @@
 #pragma mark CDVScreenOrientationDelegate
 
 @implementation CDVThemeableBrowserNavigationController : UINavigationController
+ 
+- (void)dismissViewControllerAnimated:(BOOL)flag completion:(void (^)(void))completion
+{
+    if (self.presentedViewController) {
+        [super dismissViewControllerAnimated:flag completion:completion];
+    }
+}
 
 - (BOOL)shouldAutorotate
 {
